@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Thomas Erlich · Portfolio City</title>
+    <meta name="description" content="Thomas Erlich's portfolio as an interactive 3D city: every building is a project, from AI automation and client work to research and chess tools." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Thomas Erlich · Portfolio City" />
+    <meta property="og:description" content="An interactive 3D city where every building is a project." />
+    <meta property="og:url" content="https://hathomas3.github.io/City-Res/" />
+    <meta name="theme-color" content="#1b2438" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231b2438' stroke='%2338e8ff' stroke-width='4'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' fill='%23e9fbff' text-anchor='middle'%3ETE%3C/text%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <script type="module" crossorigin src="/City-Res/assets/index-ClKh8uLD.js"></script>
+    <link rel="stylesheet" crossorigin href="/City-Res/assets/index-6-Sth8df.css">
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <a class="brand" href="#/" aria-label="Thomas Erlich">
+          <span class="brand-badge" aria-hidden="true">TE</span>
+          <span class="brand-text">
+            <strong>Thomas Erlich</strong>
+            <small data-i18n="subtitle">Every building is a project</small>
+          </span>
+        </a>
+        <div class="search-wrap">
+          <input id="search" type="search" autocomplete="off" data-i18n-ph="search" placeholder="Search projects or tech" aria-controls="search-results" />
+          <ul id="search-results" class="search-results" hidden></ul>
+        </div>
+        <nav class="top-actions">
+          <button id="btn-list" class="btn" type="button" data-i18n="listView">List view</button>
+          <button id="btn-about" class="btn" type="button" data-i18n="about">About me</button>
+          <a id="lnk-linkedin" class="icon-btn icon-link" href="https://www.linkedin.com/in/thomas-erlich" target="_blank" rel="noopener" data-i18n-title="linkedin" title="LinkedIn profile"><span aria-hidden="true">in</span></a>
+          <button id="btn-theme" class="icon-btn" type="button">◐</button>
+          <button id="btn-lang" class="btn btn-lang" type="button" data-i18n="language" lang="he">עברית</button>
+        </nav>
+      </header>
+
+      <main class="frame">
+        <div class="frame-chrome" aria-hidden="true">
+          <span class="dots"><i></i><i></i><i></i></span>
+          <span class="url">hathomas3.github.io/City-Res</span>
+        </div>
+        <div id="stage" class="stage">
+          <canvas id="city" aria-label="Interactive 3D map of projects"></canvas>
+          <div id="labels" class="labels"></div>
+          <div id="tooltip" class="tooltip" hidden></div>
+          <div class="map-controls">
+            <label class="tilt-dial" id="tilt-dial" data-i18n-title="tilt">
+              <svg viewBox="0 0 46 46" aria-hidden="true">
+                <path class="tilt-ground" d="M3 40H43" />
+                <path class="tilt-track" d="M9 10A30 30 0 0 1 34.98 25" />
+                <g class="tilt-ticks">
+                  <path d="M9 14V9" /><path d="M16.76 15.02l1.3-4.83" /><path d="M24 18.02l2.5-4.33" /><path d="M27.38 21.62l3.54-3.54" /><path d="M31.52 27l4.33-2.5" />
+                </g>
+                <g id="tilt-needle">
+                  <path class="tilt-needle" d="M9 40V12" />
+                  <circle class="tilt-eye" cx="9" cy="12" r="3.2" />
+                </g>
+                <circle class="tilt-pivot" cx="9" cy="40" r="2.4" />
+              </svg>
+              <span class="tilt-val" id="tilt-val">45°</span>
+              <input id="tilt" class="visually-hidden" data-i18n-title="tilt" type="range" min="0" max="60" step="1" value="45" />
+            </label>
+            <button id="rot-left" class="icon-btn" type="button" data-i18n-title="rotateLeft">↺</button>
+            <button id="rot-right" class="icon-btn" type="button" data-i18n-title="rotateRight">↻</button>
+            <button id="zoom-out" class="icon-btn" type="button" data-i18n-title="zoomOut">−</button>
+            <button id="zoom-in" class="icon-btn" type="button" data-i18n-title="zoomIn">+</button>
+          </div>
+          <button id="btn-list-mobile" class="btn btn-primary list-fab" type="button" data-i18n="listView">List view</button>
+          <div id="hint" class="hint" role="status"></div>
+          <aside id="card" class="card" hidden aria-live="polite"></aside>
+          <section id="project" class="project" hidden></section>
+          <div id="loading" class="loading" data-i18n="loading">Building the city…</div>
+        </div>
+      </main>
+    </div>
+
+    <div id="about" class="modal-backdrop" hidden></div>
+
+    <section id="list-view" class="list-view"><div class="list-inner">
+  <header class="list-head">
+    <div>
+      <h1>Thomas Erlich · Projects</h1>
+      <p>Builds AI automation, data systems and web apps</p>
+    </div>
+    <button class="btn list-close" type="button" data-action="close-list">Back to map</button>
+  </header>
+  <section class="list-district" style="--d:#38e8ff">
+  <h2><span class="dot"></span>AI &amp; Automation</h2>
+  <div class="list-grid"><article class="list-item tier-featured">
+  <a class="list-link" href="#/project/career-pipeline"><h3>Career Pipeline</h3></a>
+  <p class="list-tagline">A Claude Code skill that turns a job posting into a tailored one-page LaTeX resume, using only facts from a verified profile.</p>
+  <ul class="list-metrics"><li><strong>9</strong> steps, with 2 safety gates</li><li><strong>4</strong> LaTeX templates, picked per job type</li><li><strong>1</strong> page, enforced by the build</li></ul>
+  <p class="list-stack">Claude Code (Skills) · Python · LaTeX (pdflatex) · Bash · Git · Markdown</p>
+  <p class="list-meta"><span class="badge badge-featured">Featured</span><span class="badge badge-private">Private / client work</span></p>
+</article><article class="list-item tier-featured">
+  <a class="list-link" href="#/project/skinsens"><h3>SkinSens</h3></a>
+  <p class="list-tagline">AI skincare advisor: builds a morning and evening routine for your skin and the products you own, and flags ingredients that shouldn&#39;t be mixed.</p>
+  <ul class="list-metrics"><li><strong>5</strong> onboarding steps</li><li><strong>3</strong> AI providers, one interface</li><li><strong>9</strong> active ingredients checked for conflicts</li></ul>
+  <p class="list-stack">Python · Streamlit · OpenAI API · Gemini API · Ollama · SQLAlchemy · bcrypt · Google OAuth · Open Beauty Facts API</p>
+  <p class="list-meta"><span class="badge badge-featured">Featured</span></p>
+</article><article class="list-item tier-more">
+  <a class="list-link" href="#/project/local-rag-assistant"><h3>Local RAG Assistant</h3></a>
+  <p class="list-tagline">A NotebookLM-style assistant that searches your own documents on your own machine and answers only from what it finds, with the sources it used.</p>
+  <ul class="list-metrics"><li><strong>16</strong> automated tests, all passing</li><li><strong>10/10</strong> retrieval evaluation questions passed on the sample documents</li><li><strong>~2,250</strong> lines of Python</li></ul>
+  <p class="list-stack">Python · sentence-transformers · FAISS · FastAPI · Ollama · Gemini · pypdf · pywebview · pytest</p>
+  <p class="list-meta"><a href="https://github.com/haThomas3/local-rag-project" target="_blank" rel="noopener">Source code</a></p>
+</article><article class="list-item tier-more">
+  <a class="list-link" href="#/project/rag-business-agent"><h3>RAG Business Agent</h3></a>
+  <p class="list-tagline">A chat agent in n8n that answers from uploaded documents: a form puts them into a Pinecone index, and the agent searches it as a tool.</p>
+  
+  <p class="list-stack">n8n · n8n AI Agent · Pinecone · OpenAI embeddings · OpenRouter</p>
+  <p class="list-meta"></p>
+</article></div>
+</section><section class="list-district" style="--d:#ffb547">
+  <h2><span class="dot"></span>Freelance &amp; Clients</h2>
+  <div class="list-grid"><article class="list-item tier-featured">
+  <a class="list-link" href="#/project/receipts-inventory"><h3>Receipts &amp; Inventory System</h3></a>
+  <p class="list-tagline">Freelance for Pulcinella in Kadima: a phone-first app that reads the business&#39;s receipts with an LLM, checks them, and turns them into stock and spending reports.</p>
+  <ul class="list-metrics"><li><strong>68</strong> tests in CI, against a real Postgres</li><li><strong>18</strong> automatic checks on every receipt</li><li><strong>~2,900</strong> lines of Python (plus ~760 in tests)</li></ul>
+  <p class="list-stack">Python · Streamlit · PostgreSQL (Supabase) · Gemini API · n8n · Gmail · pandas · pytest · GitHub Actions</p>
+  <p class="list-meta"><span class="badge badge-featured">Featured</span><span class="badge badge-private">Private / client work</span></p>
+</article><article class="list-item tier-more">
+  <a class="list-link" href="#/project/restaurant-order-builder"><h3>Restaurant Order Builder</h3></a>
+  <p class="list-tagline">Hebrew mobile site, reached by QR code, that builds an order and shows how much a meal card covers.</p>
+  
+  <p class="list-stack">JavaScript · Cloudflare Workers · D1 (SQL) · Node.js tests · Playwright</p>
+  <p class="list-meta"><span class="badge badge-private">Private / client work</span></p>
+</article></div>
+</section><section class="list-district" style="--d:#a98bff">
+  <h2><span class="dot"></span>Academic &amp; Research</h2>
+  <div class="list-grid"><article class="list-item tier-featured">
+  <a class="list-link" href="#/project/intelsat-maxsat"><h3>IntelSAT MaxSAT Solver</h3></a>
+  <p class="list-tagline">B.Sc. capstone: turned Intel&#39;s open-source IntelSAT solver into an anytime MaxSAT solver. 3rd place at the faculty project showcase.</p>
+  <ul class="list-metrics"><li><strong>3rd / 13</strong> faculty project showcase</li><li><strong>140 / 141</strong> benchmark instances solved in 60s (incremental mode)</li><li><strong>0</strong> correctness bugs in differential fuzzing</li></ul>
+  <p class="list-stack">C++ · Make · Python · Bash · Linux · Azure VM · Git</p>
+  <p class="list-meta"><span class="badge badge-featured">Featured</span><a href="https://github.com/Ev-Gu/intel_sat_solver_enhanced" target="_blank" rel="noopener">Source code</a></p>
+</article><article class="list-item tier-featured">
+  <a class="list-link" href="#/project/question-clarity"><h3>What Makes a Question Clear?</h3></a>
+  <p class="list-tagline">Data-science study of 5,000 LaTeX Stack Exchange questions: which cues make a question actually clear, and which only make readers judge it as clear.</p>
+  <ul class="list-metrics"><li><strong>5,000</strong> questions analysed</li><li><strong>0.60</strong> R² for perceived clarity (XGBoost), vs 0.12 for the regression</li><li><strong>3,000</strong> bootstrap resamples to compare the models</li></ul>
+  <p class="list-stack">Python · R · Jupyter · pandas · scikit-learn · XGBoost · tidyverse · Stack Exchange API</p>
+  <p class="list-meta"><span class="badge badge-featured">Featured</span><a href="https://github.com/EladJoseph/Metacognition_Final_Project" target="_blank" rel="noopener">Source code</a></p>
+</article><article class="list-item tier-more">
+  <a class="list-link" href="#/project/metacognition-experiment"><h3>Online Metacognition Experiment</h3></a>
+  <p class="list-tagline">A reasoning experiment in the browser: two answers and two confidence ratings per problem, mouse tracking every 25 ms, and one ZIP of data per participant. No server needed.</p>
+  <ul class="list-metrics"><li><strong>12</strong> syllogisms, each with two answers and two confidence ratings</li><li><strong>25 ms</strong> between mouse samples, for the whole session</li><li><strong>16</strong> Latin-square trial orders, with 10 soft and 10 strict sessions</li></ul>
+  <p class="list-stack">JavaScript · HTML/CSS · Web Audio API · Python (analysis) · Jupyter</p>
+  <p class="list-meta"><a href="https://github.com/haThomas3/Metacognition_Experiment" target="_blank" rel="noopener">Source code</a></p>
+</article><article class="list-item tier-more">
+  <a class="list-link" href="#/project/nextjs-cve-demo"><h3>Authorization Vulnerabilities: Security Course Project</h3></a>
+  <p class="list-tagline">A project from a cybersecurity course in my degree: a live demo of the Next.js authorization bypass (CVE-2025-29927), a CodeQL analysis and a talk.</p>
+  <ul class="list-metrics"><li><strong>14.2.24</strong> the Next.js version in the demo, patched in 14.2.25</li><li><strong>307 → 200</strong> /admin goes from a login redirect to open, by adding one request header</li></ul>
+  <p class="list-stack">Next.js · React · JavaScript · CodeQL · Python</p>
+  <p class="list-meta"></p>
+</article></div>
+</section><section class="list-district" style="--d:#ff5fa2">
+  <h2><span class="dot"></span>Chess Quarter</h2>
+  <div class="list-grid"><article class="list-item tier-more">
+  <a class="list-link" href="#/project/teachmechess"><h3>TeachMeChess</h3></a>
+  <p class="list-tagline">A chess coach that plays you with Stockfish, rates every move you make, explains it in plain language and takes you back to the chances you missed.</p>
+  <ul class="list-metrics"><li><strong>8</strong> move-rating levels, from Brilliant to Blunder</li><li><strong>200–1800</strong> opponent ELO range</li><li><strong>~1,400</strong> lines of Python and JavaScript</li></ul>
+  <p class="list-stack">Python · Streamlit · python-chess · Stockfish · SQLite · JavaScript · chessboardjs</p>
+  <p class="list-meta"><a href="https://github.com/haThomas3/TMC_TeachMeChess" target="_blank" rel="noopener">Source code</a></p>
+</article><article class="list-item tier-more">
+  <a class="list-link" href="#/project/threat-map"><h3>Threat Map</h3></a>
+  <p class="list-tagline">A mobile board-vision trainer: mark every square your pieces threaten in positions from 800 of my own games, then see what you missed.</p>
+  <ul class="list-metrics"><li><strong>4,744</strong> positions from 802 of my games</li><li><strong>~34</strong> squares to find per position in Mode 1, on average</li><li><strong>1</strong> self-contained HTML file, works offline</li></ul>
+  <p class="list-stack">JavaScript · HTML/CSS · Python · python-chess</p>
+  <p class="list-meta"><a href="https://github.com/haThomas3/threat-map" target="_blank" rel="noopener">Source code</a><a href="https://hathomas3.github.io/threat-map/threat_map.html" target="_blank" rel="noopener">Live demo</a></p>
+</article><article class="list-item tier-more">
+  <a class="list-link" href="#/project/chess-analytics"><h3>Chess Analytics Dashboard</h3></a>
+  <p class="list-tagline">Imports my chess.com game history into SQLite and turns it into a dashboard that runs SQL in the browser, in one HTML file.</p>
+  <ul class="list-metrics"><li><strong>24</strong> SQL queries run in the browser on page load</li><li><strong>4</strong> Chart.js charts across 8 dashboard sections</li><li><strong>~900</strong> lines of Python, SQL, HTML, CSS and JavaScript</li></ul>
+  <p class="list-stack">Python · requests · SQLite · SQL · Stockfish · sql.js · Chart.js · JavaScript · HTML/CSS</p>
+  <p class="list-meta"></p>
+</article></div>
+</section><section class="list-district" style="--d:#7dff8a">
+  <h2><span class="dot"></span>Playground</h2>
+  <div class="list-grid"><article class="list-item tier-more">
+  <a class="list-link" href="#/project/boredom-solvers"><h3>Boredom Solvers</h3></a>
+  <p class="list-tagline">Lightweight Python games and simulations, from terminal logic puzzles to a Boids flocking simulation.</p>
+  
+  <p class="list-stack">Python</p>
+  <p class="list-meta"><a href="https://github.com/haThomas3/boredom_solvers" target="_blank" rel="noopener">Source code</a></p>
+</article><article class="list-item tier-optional">
+  <a class="list-link" href="#/project/pdf-merge-cli"><h3>PDF Merge CLI</h3></a>
+  <p class="list-tagline">Python command-line tool packaged as a Windows .exe.</p>
+  
+  <p class="list-stack">Python · PyInstaller</p>
+  <p class="list-meta"></p>
+</article><article class="list-item tier-optional">
+  <a class="list-link" href="#/project/django-apps"><h3>Django Web Apps</h3></a>
+  <p class="list-tagline">Two coursework web apps over SQL: a Netflix-style catalogue browser and a stock-market app.</p>
+  
+  <p class="list-stack">Django · Python · SQL · HTML</p>
+  <p class="list-meta"></p>
+</article></div>
+</section><section class="list-district" style="--d:#ffb000">
+  <h2><span class="dot"></span>Construction Site</h2>
+  <div class="list-grid"><article class="list-item tier-more">
+  <a class="list-link" href="#/project/city-res-template"><h3>Portfolio City Template</h3></a>
+  <p class="list-tagline">A neutral copy of this city&#39;s code, with sample content and no personal data, so anyone can build a portfolio city of their own.</p>
+  
+  <p class="list-stack">TypeScript · Vite · three.js · GitHub Actions</p>
+  <p class="list-meta"><span class="badge badge-private">🚧 Under construction</span><a href="https://github.com/haThomas3/city_res_public_use" target="_blank" rel="noopener">Source code</a></p>
+</article></div>
+</section>
+</div></section>
+
+  </body>
+</html>

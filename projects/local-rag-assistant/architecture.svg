@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" font-family="Rubik, 'Segoe UI', Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#8fa6e0"/>
+    </marker>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b2440"/>
+      <stop offset="1" stop-color="#121829"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="640" rx="24" fill="url(#bg)"/>
+  <text x="30" y="52" font-size="26" font-weight="700" fill="#e6eeff">Local RAG Assistant · from your files to a sourced answer</text>
+  <text x="30" y="78" font-size="14" fill="#8fa6e0">Python · sentence-transformers · FAISS · FastAPI · Ollama or Gemini (opt-in) · pytest</text>
+
+  <!-- row 1: indexing -->
+  <text x="30" y="116" font-size="13" font-weight="700" fill="#8fa6e0" letter-spacing="1">INDEXING · RUNS LOCALLY, NO LLM CALLS</text>
+  <g text-anchor="middle">
+    <rect x="30" y="128" width="280" height="150" rx="12" fill="#232d4d" stroke="#5b6b96" stroke-width="2"/>
+    <text x="170" y="166" font-size="16" font-weight="700" fill="#e6eeff">Your documents</text>
+    <text x="170" y="192" font-size="12" fill="#a9b8d8">.txt · .md · .pdf (text via pypdf)</text>
+    <text x="170" y="210" font-size="12" fill="#a9b8d8">from a local folder, or uploaded</text>
+    <text x="170" y="228" font-size="12" fill="#a9b8d8">in the web page</text>
+    <text x="170" y="254" font-size="12" fill="#a9b8d8">other file types rejected (400)</text>
+
+    <rect x="343" y="128" width="280" height="150" rx="12" fill="#3a2e14" stroke="#ffb547" stroke-width="2.5"/>
+    <text x="483" y="166" font-size="16" font-weight="700" fill="#ffe7c2">Chunking</text>
+    <text x="483" y="192" font-size="12" fill="#d9bf98">40-word chunks, 10-word overlap</text>
+    <text x="483" y="210" font-size="12" fill="#d9bf98">stable chunk ID per piece</text>
+    <text x="483" y="236" font-size="12" fill="#d9bf98">metadata for citations:</text>
+    <text x="483" y="254" font-size="12" fill="#d9bf98">source file · excerpt n of m</text>
+
+    <rect x="656" y="128" width="280" height="150" rx="12" fill="#0f3a49" stroke="#22c7e6" stroke-width="2.5"/>
+    <text x="796" y="166" font-size="16" font-weight="700" fill="#e6feff">Local embeddings</text>
+    <text x="796" y="192" font-size="12" fill="#9fe6f5">sentence-transformers</text>
+    <text x="796" y="210" font-size="12" fill="#9fe6f5">all-MiniLM-L6-v2</text>
+    <text x="796" y="236" font-size="13" font-weight="700" fill="#e6feff">384-dimension vectors</text>
+    <text x="796" y="256" font-size="12" fill="#9fe6f5">normalised, computed on this machine</text>
+
+    <rect x="970" y="128" width="280" height="150" rx="12" fill="#173a2e" stroke="#4fc79a" stroke-width="2.5"/>
+    <text x="1110" y="166" font-size="16" font-weight="700" fill="#dffff0">FAISS vector store</text>
+    <text x="1110" y="192" font-size="12" fill="#a6dcc4">IndexFlatIP: inner product</text>
+    <text x="1110" y="210" font-size="12" fill="#a6dcc4">= cosine on normalised vectors</text>
+    <text x="1110" y="236" font-size="12" fill="#a6dcc4">saved as index.faiss + chunks.json</text>
+    <text x="1110" y="254" font-size="12" fill="#a6dcc4">loaded once when the app starts</text>
+  </g>
+  <g stroke="#8fa6e0" stroke-width="2" fill="none" marker-end="url(#a)">
+    <path d="M310 203H341"/>
+    <path d="M623 203H654"/>
+    <path d="M936 203H968"/>
+  </g>
+
+  <!-- row 2: asking -->
+  <text x="30" y="324" font-size="13" font-weight="700" fill="#8fa6e0" letter-spacing="1">ASKING</text>
+  <rect x="30" y="336" width="1220" height="174" rx="14" fill="#161d33" stroke="#a98bff" stroke-width="2"/>
+  <g text-anchor="middle">
+    <rect x="50" y="360" width="214" height="132" rx="10" fill="#1d2440" stroke="#5b6b96" stroke-width="1.5"/>
+    <text x="157" y="392" font-size="15" font-weight="700" fill="#ece6ff">Question</text>
+    <text x="157" y="418" font-size="12" fill="#c9b3e8">interactive CLI</text>
+    <text x="157" y="436" font-size="12" fill="#c9b3e8">POST /ask (FastAPI)</text>
+    <text x="157" y="454" font-size="12" fill="#c9b3e8">web page, or the same page</text>
+    <text x="157" y="472" font-size="12" fill="#c9b3e8">in a pywebview window</text>
+
+    <rect x="291" y="360" width="214" height="132" rx="10" fill="#1d2440" stroke="#5b6b96" stroke-width="1.5"/>
+    <text x="398" y="392" font-size="15" font-weight="700" fill="#ece6ff">Retrieve</text>
+    <text x="398" y="418" font-size="12" fill="#c9b3e8">embed the question with</text>
+    <text x="398" y="436" font-size="12" fill="#c9b3e8">the same local model</text>
+    <text x="398" y="454" font-size="12" fill="#c9b3e8">FAISS search,</text>
+    <text x="398" y="472" font-size="12" fill="#c9b3e8">top 3 chunks by default</text>
+
+    <rect x="532" y="360" width="214" height="132" rx="10" fill="#3a1d1d" stroke="#ff7a6b" stroke-width="2"/>
+    <text x="639" y="392" font-size="15" font-weight="700" fill="#ffe3df">Relevance gate</text>
+    <text x="639" y="418" font-size="12" fill="#e8b4ad">keep chunks scoring ≥ 0.20</text>
+    <text x="639" y="436" font-size="12" fill="#e8b4ad">none left: "not enough</text>
+    <text x="639" y="454" font-size="12" fill="#e8b4ad">information", no LLM call</text>
+    <text x="639" y="472" font-size="12" fill="#e8b4ad">labels VERY HIGH … VERY LOW</text>
+
+    <rect x="773" y="360" width="214" height="132" rx="10" fill="#1d2440" stroke="#5b6b96" stroke-width="1.5"/>
+    <text x="880" y="392" font-size="15" font-weight="700" fill="#ece6ff">Grounded prompt</text>
+    <text x="880" y="418" font-size="12" fill="#c9b3e8">use only retrieved context</text>
+    <text x="880" y="436" font-size="12" fill="#c9b3e8">no outside knowledge</text>
+    <text x="880" y="454" font-size="12" fill="#c9b3e8">fixed refusal sentence</text>
+    <text x="880" y="472" font-size="12" fill="#c9b3e8">Answer + Sources format</text>
+
+    <rect x="1014" y="360" width="214" height="132" rx="10" fill="#1d2440" stroke="#5b6b96" stroke-width="1.5"/>
+    <text x="1121" y="392" font-size="15" font-weight="700" fill="#ece6ff">LLM provider</text>
+    <text x="1121" y="418" font-size="12" fill="#c9b3e8">none (default): sources only</text>
+    <text x="1121" y="436" font-size="12" fill="#c9b3e8">local: Ollama over HTTP</text>
+    <text x="1121" y="454" font-size="12" fill="#c9b3e8">gemini: blocked unless</text>
+    <text x="1121" y="472" font-size="12" fill="#c9b3e8">--allow-remote-llm is set</text>
+  </g>
+  <g stroke="#8fa6e0" stroke-width="2" fill="none" marker-end="url(#a)">
+    <path d="M264 426H289"/>
+    <path d="M505 426H530"/>
+    <path d="M746 426H771"/>
+    <path d="M987 426H1012"/>
+    <path d="M1110 278V298H398V358"/>
+    <path d="M639 492V524"/>
+    <path d="M1121 492V524"/>
+  </g>
+
+  <!-- row 3: response -->
+  <g text-anchor="middle">
+    <rect x="30" y="526" width="1220" height="62" rx="12" fill="#173a24" stroke="#7dff8a" stroke-width="2"/>
+    <text x="640" y="551" font-size="15" font-weight="700" fill="#dfffe3">Response: the answer (if generated) and its sources</text>
+    <text x="640" y="573" font-size="12" fill="#b4e6bb">for each source: file name · excerpt n of m · relevance label · similarity score · a short quote</text>
+  </g>
+
+  <text x="640" y="620" font-size="13" fill="#8fa6e0" text-anchor="middle">Solo project · June–August 2026 · ~2,250 lines of Python · 16 pytest tests and a 10-question retrieval evaluation</text>
+</svg>

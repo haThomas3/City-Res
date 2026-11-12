@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" font-family="Rubik, 'Segoe UI', Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#8fa6e0"/>
+    </marker>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b2440"/>
+      <stop offset="1" stop-color="#121829"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="640" rx="24" fill="url(#bg)"/>
+  <text x="30" y="52" font-size="26" font-weight="700" fill="#e6eeff">Django Web Apps · a Netflix browser and a stock-market app</text>
+  <text x="30" y="78" font-size="14" fill="#8fa6e0">Databases course coursework · Django views over an existing SQL schema · raw queries and parameterized writes</text>
+
+  <!-- two apps -->
+  <g text-anchor="middle">
+    <rect x="30" y="104" width="590" height="190" rx="12" fill="#45171b" stroke="#ff6b6b" stroke-width="2.5"/>
+    <text x="325" y="140" font-size="17" font-weight="700" fill="#ffd9d9">Netflix browser</text>
+    <text x="325" y="170" font-size="13" fill="#f3b6b6">lists catalogue titles, newest release first</text>
+    <text x="325" y="192" font-size="13" fill="#f3b6b6">raw SQL SELECT on a titles table</text>
+    <text x="325" y="214" font-size="13" fill="#f3b6b6">a form adds a new title to the database</text>
+    <text x="325" y="244" font-size="12" fill="#e79a9a">tables: Content · netflix_titles</text>
+    <text x="325" y="268" font-size="12" fill="#e79a9a">fields: title · type · director · release year · rating</text>
+
+    <rect x="660" y="104" width="590" height="190" rx="12" fill="#0f3a49" stroke="#22c7e6" stroke-width="2.5"/>
+    <text x="955" y="140" font-size="17" font-weight="700" fill="#e6feff">Stock-market app</text>
+    <text x="955" y="170" font-size="13" fill="#9fe6f5">analytical reports with nested and correlated subqueries</text>
+    <text x="955" y="192" font-size="13" fill="#9fe6f5">SQL views: sumOfStocks · lastDay · dayOne</text>
+    <text x="955" y="214" font-size="13" fill="#9fe6f5">forms to add a transaction and buy stocks</text>
+    <text x="955" y="244" font-size="12" fill="#7fd3e6">tables: Company · Stock · Investor · Buying · Transactions</text>
+    <text x="955" y="268" font-size="12" fill="#7fd3e6">writes check business rules before they run</text>
+  </g>
+  <g stroke="#8fa6e0" stroke-width="2" fill="none" marker-end="url(#a)">
+    <path d="M325 294V338"/>
+    <path d="M955 294V338"/>
+  </g>
+
+  <!-- django layer -->
+  <g text-anchor="middle">
+    <rect x="30" y="340" width="1220" height="150" rx="12" fill="#1d2440" stroke="#a98bff" stroke-width="2"/>
+    <text x="640" y="376" font-size="17" font-weight="700" fill="#ece6ff">Django</text>
+    <text x="640" y="406" font-size="13" fill="#c9b3e8">URL routes → views → HTML templates (server-rendered pages)</text>
+    <text x="640" y="430" font-size="13" fill="#c9b3e8">models map to an existing SQL schema (managed = False), so Django does not own the tables</text>
+    <text x="640" y="454" font-size="13" fill="#c9b3e8">reports run raw SQL through a cursor; inserts use parameterized queries (no string building with user input)</text>
+    <text x="640" y="476" font-size="12" fill="#8fa6e0">this is a databases exercise: the SQL is the point, Django is the thin front end over it</text>
+  </g>
+  <g stroke="#8fa6e0" stroke-width="2" fill="none" marker-end="url(#a)">
+    <path d="M640 490V534"/>
+  </g>
+
+  <!-- db -->
+  <g text-anchor="middle">
+    <rect x="30" y="536" width="1220" height="54" rx="12" fill="#173a24" stroke="#7dff8a" stroke-width="2"/>
+    <text x="640" y="562" font-size="15" font-weight="700" fill="#dfffe3">SQL database</text>
+    <text x="640" y="580" font-size="12" fill="#a6dcc4">Microsoft SQL Server for the course · SQLite for the local Netflix build · Django · Python · SQL</text>
+  </g>
+</svg>

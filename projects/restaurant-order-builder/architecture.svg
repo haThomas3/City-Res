@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" font-family="Rubik, 'Segoe UI', Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#8fa6e0"/>
+    </marker>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b2440"/>
+      <stop offset="1" stop-color="#121829"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="640" rx="24" fill="url(#bg)"/>
+  <text x="30" y="52" font-size="26" font-weight="700" fill="#e6eeff">Restaurant Order Builder · from a QR code to the meal-card split</text>
+  <text x="30" y="78" font-size="14" fill="#8fa6e0">Private client work · Cloudflare Workers + D1 on the free plan · no orders or personal data stored on the server</text>
+
+  <!-- column A: clients -->
+  <g text-anchor="middle">
+    <rect x="30" y="108" width="260" height="160" rx="12" fill="#232d4d" stroke="#5b6b96" stroke-width="2"/>
+    <text x="160" y="140" font-size="16" font-weight="700" fill="#e6eeff">Customer phone</text>
+    <text x="160" y="166" font-size="12" fill="#a9b8d8">QR code → one fixed address</text>
+    <text x="160" y="184" font-size="12" fill="#a9b8d8">Hebrew, right to left, mobile</text>
+    <text x="160" y="208" font-size="12" fill="#a9b8d8">meal-card balance and order</text>
+    <text x="160" y="226" font-size="12" fill="#a9b8d8">kept in the browser only,</text>
+    <text x="160" y="244" font-size="12" fill="#a9b8d8">never sent to the server</text>
+
+    <rect x="30" y="300" width="260" height="150" rx="12" fill="#2e1b45" stroke="#a46bff" stroke-width="2.5"/>
+    <text x="160" y="332" font-size="16" font-weight="700" fill="#f0e6ff">Admin panel</text>
+    <text x="160" y="358" font-size="12" fill="#c9b3e8">password and session key</text>
+    <text x="160" y="376" font-size="12" fill="#c9b3e8">stored as server secrets</text>
+    <text x="160" y="394" font-size="12" fill="#c9b3e8">signed HttpOnly cookie, 12 h</text>
+    <text x="160" y="412" font-size="12" fill="#c9b3e8">15 min lockout after 5 misses</text>
+    <text x="160" y="430" font-size="12" fill="#c9b3e8">menu editor · on/off switch</text>
+  </g>
+
+  <!-- column B: Cloudflare -->
+  <g text-anchor="middle">
+    <rect x="350" y="108" width="300" height="72" rx="12" fill="#232d4d" stroke="#5b6b96" stroke-width="2"/>
+    <text x="500" y="138" font-size="15" font-weight="700" fill="#e6eeff">Static assets</text>
+    <text x="500" y="160" font-size="12" fill="#a9b8d8">pages and scripts, served without running code</text>
+
+    <rect x="350" y="200" width="300" height="250" rx="12" fill="#0f3a49" stroke="#22c7e6" stroke-width="2.5"/>
+    <text x="500" y="232" font-size="16" font-weight="700" fill="#e6feff">Cloudflare Worker API</text>
+    <text x="500" y="258" font-size="12" fill="#9fe6f5">GET /api/status · GET /api/menu</text>
+    <text x="500" y="276" font-size="12" fill="#9fe6f5">POST /api/quote: the server prices the order</text>
+    <text x="500" y="294" font-size="12" fill="#9fe6f5">and flags changed prices or items</text>
+    <text x="500" y="312" font-size="12" fill="#9fe6f5">POST /api/report · GET /api/health</text>
+    <line x1="380" y1="330" x2="620" y2="330" stroke="#22c7e6" stroke-opacity="0.4"/>
+    <text x="500" y="352" font-size="12" fill="#9fe6f5">/api/admin: login, state,</text>
+    <text x="500" y="370" font-size="12" fill="#9fe6f5">service on/off, menu save</text>
+    <text x="500" y="388" font-size="12" fill="#9fe6f5">menu checked before it is stored</text>
+    <text x="500" y="406" font-size="12" fill="#9fe6f5">version check stops overwrites</text>
+    <text x="500" y="424" font-size="12" fill="#9fe6f5">Origin check on admin calls</text>
+  </g>
+
+  <!-- column C: data -->
+  <g text-anchor="middle">
+    <rect x="710" y="200" width="250" height="160" rx="12" fill="#173a2e" stroke="#4fc79a" stroke-width="2.5"/>
+    <text x="835" y="232" font-size="16" font-weight="700" fill="#dffff0">D1 (SQL)</text>
+    <text x="835" y="258" font-size="12" fill="#a6dcc4">one key/value table of JSON</text>
+    <text x="835" y="276" font-size="12" fill="#a6dcc4">service · menu version · menu</text>
+    <text x="835" y="302" font-size="12" fill="#a6dcc4">strongly consistent, so it was</text>
+    <text x="835" y="320" font-size="12" fill="#a6dcc4">chosen over KV for the</text>
+    <text x="835" y="338" font-size="12" fill="#a6dcc4">kill switch</text>
+  </g>
+
+  <!-- column D -->
+  <g text-anchor="middle">
+    <rect x="1010" y="108" width="240" height="160" rx="12" fill="#3a2e14" stroke="#ffb547" stroke-width="2.5"/>
+    <text x="1130" y="140" font-size="16" font-weight="700" fill="#ffe7c2">Shared pricing code</text>
+    <text x="1130" y="166" font-size="12" fill="#d9bf98">same file in browser and Worker</text>
+    <text x="1130" y="184" font-size="12" fill="#d9bf98">whole agorot, no floats</text>
+    <text x="1130" y="208" font-size="12" fill="#d9bf98">covered = min(balance, total)</text>
+    <text x="1130" y="226" font-size="12" fill="#d9bf98">rest = total − covered</text>
+    <text x="1130" y="244" font-size="12" fill="#d9bf98">never below zero</text>
+
+    <rect x="1010" y="300" width="240" height="150" rx="12" fill="#232d4d" stroke="#5b6b96" stroke-width="2"/>
+    <text x="1130" y="332" font-size="16" font-weight="700" fill="#e6eeff">Alerts</text>
+    <text x="1130" y="358" font-size="12" fill="#a9b8d8">Telegram or a webhook,</text>
+    <text x="1130" y="376" font-size="12" fill="#a9b8d8">only if their secrets are set</text>
+    <text x="1130" y="394" font-size="12" fill="#a9b8d8">at most one per 10 minutes</text>
+    <text x="1130" y="418" font-size="12" fill="#a9b8d8">an outside check on /api/health</text>
+    <text x="1130" y="436" font-size="12" fill="#a9b8d8">is advised, for a Worker outage</text>
+  </g>
+
+  <g stroke="#8fa6e0" stroke-width="2" fill="none" marker-end="url(#a)">
+    <path d="M290 144H348"/>
+    <path d="M290 236H348"/>
+    <path d="M290 375H348"/>
+    <path d="M652 280H708" marker-start="url(#a)"/>
+    <path d="M650 420H1008"/>
+  </g>
+  <path d="M1008 150H652" stroke="#ffb547" stroke-width="2" stroke-dasharray="6 5" fill="none" marker-end="url(#a)"/>
+  <text x="830" y="140" text-anchor="middle" font-size="12" fill="#d9bf98">also served to the browser</text>
+  <path d="M1008 190H680V216H654" stroke="#ffb547" stroke-width="2" stroke-dasharray="6 5" fill="none" marker-end="url(#a)"/>
+
+  <!-- bottom row -->
+  <g text-anchor="middle">
+    <rect x="30" y="480" width="590" height="132" rx="12" fill="#173a2e" stroke="#4fc79a" stroke-width="2.5"/>
+    <text x="325" y="512" font-size="16" font-weight="700" fill="#dffff0">Remote kill switch</text>
+    <text x="325" y="538" font-size="13" fill="#a6dcc4">checked on load, tab return, focus, reconnect and before the summary</text>
+    <text x="325" y="560" font-size="13" fill="#a6dcc4">open pages check every 20 s, with a 30 s ceiling</text>
+    <text x="325" y="582" font-size="13" fill="#a6dcc4">when off: one line, "service unavailable". The menu is never sent.</text>
+
+    <rect x="660" y="480" width="590" height="132" rx="12" fill="#45201b" stroke="#ff7a6b" stroke-width="2.5"/>
+    <text x="955" y="512" font-size="16" font-weight="700" fill="#ffe4e0">Fails closed</text>
+    <text x="955" y="538" font-size="13" fill="#e8b8b0">a failed, slow or broken status check blocks the page</text>
+    <text x="955" y="560" font-size="13" fill="#e8b8b0">it retries every 5 s and recovers by itself</text>
+    <text x="955" y="582" font-size="13" fill="#e8b8b0">the browser reports the failure, and the Worker sends an alert</text>
+  </g>
+</svg>

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" font-family="Rubik, 'Segoe UI', Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#8fa6e0"/>
+    </marker>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b2440"/>
+      <stop offset="1" stop-color="#121829"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="640" rx="24" fill="url(#bg)"/>
+  <text x="30" y="52" font-size="26" font-weight="700" fill="#e6eeff">Online metacognition experiment · two answers, two confidence ratings</text>
+  <text x="30" y="78" font-size="14" fill="#8fa6e0">Belief-bias syllogisms in the browser · mouse tracking · runs offline, one ZIP of data per participant</text>
+
+  <!-- row 1: session -->
+  <g text-anchor="middle">
+    <rect x="30" y="108" width="180" height="96" rx="12" fill="#232d4d" stroke="#5b6b96" stroke-width="2"/>
+    <text x="120" y="142" font-size="15" font-weight="700" fill="#e6eeff">Consent</text>
+    <text x="120" y="166" font-size="12" fill="#a9b8d8">+ demographics</text>
+    <text x="120" y="184" font-size="12" fill="#a9b8d8">anonymous code P001-P020</text>
+
+    <rect x="250" y="108" width="250" height="96" rx="12" fill="#2b2440" stroke="#a46bff" stroke-width="2.5"/>
+    <text x="375" y="138" font-size="15" font-weight="700" fill="#f0e6ff">The code decides</text>
+    <text x="375" y="162" font-size="12" fill="#c9b3e8">soft or strict deadlines (10 / 10)</text>
+    <text x="375" y="180" font-size="12" fill="#c9b3e8">YES button left or right</text>
+    <text x="375" y="198" font-size="12" fill="#c9b3e8">1 of 16 Latin-square orders</text>
+
+    <rect x="540" y="108" width="180" height="96" rx="12" fill="#232d4d" stroke="#5b6b96" stroke-width="2"/>
+    <text x="630" y="142" font-size="15" font-weight="700" fill="#e6eeff">Instructions</text>
+    <text x="630" y="166" font-size="12" fill="#a9b8d8">+ one practice</text>
+    <text x="630" y="184" font-size="12" fill="#a9b8d8">problem</text>
+
+    <rect x="760" y="108" width="490" height="96" rx="12" fill="#232d4d" stroke="#5b6b96" stroke-width="2"/>
+    <text x="1005" y="138" font-size="15" font-weight="700" fill="#e6eeff">12 syllogisms in three blocks</text>
+    <text x="1005" y="162" font-size="12" fill="#a9b8d8">2 belief blocks: believable / unbelievable × valid / invalid</text>
+    <text x="1005" y="180" font-size="12" fill="#a9b8d8">1 neutral block (nonsense words), shown first or last</text>
+    <text x="1005" y="198" font-size="12" fill="#a9b8d8">does the conclusion follow logically?</text>
+  </g>
+  <g stroke="#8fa6e0" stroke-width="2" fill="none" marker-end="url(#a)">
+    <path d="M210 156H248"/>
+    <path d="M500 156H538"/>
+    <path d="M720 156H758"/>
+    <path d="M1005 204V246"/>
+  </g>
+
+  <!-- row 2: one trial -->
+  <text x="30" y="270" font-size="14" font-weight="700" fill="#8fa6e0">EACH TRIAL</text>
+  <g text-anchor="middle">
+    <rect x="30" y="284" width="270" height="110" rx="12" fill="#173a2e" stroke="#4fc79a" stroke-width="2.5"/>
+    <text x="165" y="316" font-size="15" font-weight="700" fill="#dffff0">1 · First answer, YES / NO</text>
+    <text x="165" y="340" font-size="12" fill="#a6dcc4">intuition, 10-second countdown ring</text>
+    <text x="165" y="358" font-size="12" fill="#a6dcc4">soft: a beep, answer now</text>
+    <text x="165" y="376" font-size="12" fill="#a6dcc4">strict: time out ends the phase</text>
+
+    <rect x="340" y="284" width="270" height="110" rx="12" fill="#3a2e14" stroke="#f0b84d" stroke-width="2.5"/>
+    <text x="475" y="316" font-size="15" font-weight="700" fill="#fff2d6">2 · Confidence, 1 to 7</text>
+    <text x="475" y="340" font-size="12" fill="#e8cf9c">how sure the first answer</text>
+    <text x="475" y="358" font-size="12" fill="#e8cf9c">is correct</text>
+
+    <rect x="650" y="284" width="270" height="110" rx="12" fill="#173a2e" stroke="#4fc79a" stroke-width="2.5"/>
+    <text x="785" y="316" font-size="15" font-weight="700" fill="#dffff0">3 · Final answer, YES / NO</text>
+    <text x="785" y="340" font-size="12" fill="#a6dcc4">up to 60 seconds to think again</text>
+    <text x="785" y="358" font-size="12" fill="#a6dcc4">answer changes are recorded</text>
+
+    <rect x="960" y="284" width="290" height="110" rx="12" fill="#3a2e14" stroke="#f0b84d" stroke-width="2.5"/>
+    <text x="1105" y="316" font-size="15" font-weight="700" fill="#fff2d6">4 · Confidence, 1 to 7</text>
+    <text x="1105" y="340" font-size="12" fill="#e8cf9c">how sure the final answer</text>
+    <text x="1105" y="358" font-size="12" fill="#e8cf9c">is correct</text>
+  </g>
+  <g stroke="#8fa6e0" stroke-width="2" fill="none" marker-end="url(#a)">
+    <path d="M300 339H338"/>
+    <path d="M610 339H648"/>
+    <path d="M920 339H958"/>
+  </g>
+
+  <!-- row 3: recording and export -->
+  <g text-anchor="middle">
+    <rect x="30" y="432" width="600" height="88" rx="12" fill="#1e3046" stroke="#38c6e8" stroke-width="2.5"/>
+    <text x="330" y="462" font-size="15" font-weight="700" fill="#dff7ff">Recorded all the way through</text>
+    <text x="330" y="486" font-size="12" fill="#a8d8e8">mouse position every 25 ms · clicks · response times · on time / late / timeout</text>
+    <text x="330" y="504" font-size="12" fill="#a8d8e8">derived mouse metrics per phase · accuracy · confidence</text>
+
+    <rect x="670" y="432" width="580" height="88" rx="12" fill="#232d4d" stroke="#5b6b96" stroke-width="2"/>
+    <text x="960" y="462" font-size="15" font-weight="700" fill="#e6eeff">One ZIP per participant, saved locally</text>
+    <text x="960" y="486" font-size="12" fill="#a9b8d8">full_session.json (raw mouse samples) + trial_summary.csv</text>
+    <text x="960" y="504" font-size="12" fill="#a9b8d8">no server and no internet needed, no names or IDs</text>
+  </g>
+  <g stroke="#8fa6e0" stroke-width="2" fill="none" marker-end="url(#a)">
+    <path d="M330 394V430"/>
+    <path d="M630 476H668"/>
+  </g>
+
+  <rect x="30" y="552" width="1220" height="60" rx="12" fill="#1a2138" stroke="#3b4770" stroke-width="1.5"/>
+  <text x="640" y="588" font-size="14" fill="#a9b8d8" text-anchor="middle">About 20 participants · the team analysed accuracy, calibration and resolution of confidence, and mouse movement</text>
+</svg>
