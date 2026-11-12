@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 480" font-family="Rubik, 'Segoe UI', Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#8fa6e0"/>
+    </marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#ff7a8a"/>
+    </marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#7dff8a"/>
+    </marker>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b2440"/>
+      <stop offset="1" stop-color="#121829"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="480" rx="24" fill="url(#bg)"/>
+  <text x="30" y="52" font-size="26" font-weight="700" fill="#e6eeff">The Game of Glory · five guesses in a row, one wrong answer and you start over</text>
+  <text x="30" y="78" font-size="14" fill="#8fa6e0">Glory.py (141 lines) · a card game from home, played in the terminal, with a Hall of Fame for winners</text>
+
+  <text x="30" y="116" font-size="13" font-weight="700" fill="#8fa6e0" letter-spacing="1">ONE ROUND, SIX CARDS FROM ONE DECK, NEVER THE SAME CARD TWICE</text>
+  <g text-anchor="middle">
+    <rect x="30" y="130" width="210" height="150" rx="12" fill="#232d4d" stroke="#5b6b96" stroke-width="2"/>
+    <text x="135" y="162" font-size="14" font-weight="700" fill="#e6eeff">Guess 1</text>
+    <text x="135" y="190" font-size="12" fill="#a9b8d8">second card above or</text>
+    <text x="135" y="208" font-size="12" fill="#a9b8d8">below the first</text>
+    <text x="135" y="248" font-size="22" font-weight="700" fill="#38e8ff">2 options</text>
+
+    <rect x="270" y="130" width="210" height="150" rx="12" fill="#232d4d" stroke="#5b6b96" stroke-width="2"/>
+    <text x="375" y="162" font-size="14" font-weight="700" fill="#e6eeff">Guess 2</text>
+    <text x="375" y="190" font-size="12" fill="#a9b8d8">third card above, below</text>
+    <text x="375" y="208" font-size="12" fill="#a9b8d8">or between the two</text>
+    <text x="375" y="248" font-size="22" font-weight="700" fill="#38e8ff">3 options</text>
+
+    <rect x="510" y="130" width="210" height="150" rx="12" fill="#3a2e14" stroke="#ffb547" stroke-width="2.5"/>
+    <text x="615" y="162" font-size="14" font-weight="700" fill="#ffe7c2">Guess 3</text>
+    <text x="615" y="190" font-size="12" fill="#d9bf98">colour of the</text>
+    <text x="615" y="208" font-size="12" fill="#d9bf98">fourth card</text>
+    <text x="615" y="248" font-size="22" font-weight="700" fill="#ffb547">2 options</text>
+
+    <rect x="750" y="130" width="210" height="150" rx="12" fill="#3a2e14" stroke="#ffb547" stroke-width="2.5"/>
+    <text x="855" y="162" font-size="14" font-weight="700" fill="#ffe7c2">Guess 4</text>
+    <text x="855" y="190" font-size="12" fill="#d9bf98">suit of the</text>
+    <text x="855" y="208" font-size="12" fill="#d9bf98">fifth card</text>
+    <text x="855" y="248" font-size="22" font-weight="700" fill="#ffb547">4 options</text>
+
+    <rect x="990" y="130" width="210" height="150" rx="12" fill="#2d1f4d" stroke="#a98bff" stroke-width="2.5"/>
+    <text x="1095" y="162" font-size="14" font-weight="700" fill="#efe6ff">Guess 5</text>
+    <text x="1095" y="190" font-size="12" fill="#c7b6ee">value of the</text>
+    <text x="1095" y="208" font-size="12" fill="#c7b6ee">sixth card</text>
+    <text x="1095" y="248" font-size="22" font-weight="700" fill="#a98bff">13 options</text>
+  </g>
+  <path d="M240 205 L266 205" stroke="#8fa6e0" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M480 205 L506 205" stroke="#8fa6e0" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M720 205 L746 205" stroke="#8fa6e0" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M960 205 L986 205" stroke="#8fa6e0" stroke-width="2" marker-end="url(#a)"/>
+
+  <g text-anchor="middle">
+    <rect x="30" y="340" width="540" height="100" rx="12" fill="#3d1d28" stroke="#ff7a8a" stroke-width="2.5"/>
+    <text x="300" y="374" font-size="15" font-weight="700" fill="#ffd9de">Any wrong guess</text>
+    <text x="300" y="400" font-size="12" fill="#e6b3bb">"You lost!" · fresh deck, used cards cleared, back to the first card</text>
+    <text x="300" y="420" font-size="12" fill="#e6b3bb">Cards already used in the round are skipped when the next one is drawn</text>
+
+    <rect x="690" y="340" width="560" height="100" rx="12" fill="#12382a" stroke="#7dff8a" stroke-width="2.5"/>
+    <text x="970" y="374" font-size="15" font-weight="700" fill="#d9ffe0">All five right</text>
+    <text x="970" y="400" font-size="12" fill="#a8e6b4">"Congratulations!" · type a name to join the Hall of Fame</text>
+    <text x="970" y="420" font-size="12" fill="#a8e6b4">The names are listed on the welcome screen of every new round</text>
+  </g>
+  <path d="M135 284 L135 336" stroke="#ff7a8a" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#r)"/>
+  <path d="M855 284 L855 312 L300 312 L300 336" stroke="#ff7a8a" stroke-width="2" stroke-dasharray="6 5" fill="none" marker-end="url(#r)"/>
+  <path d="M1095 284 L1095 336" stroke="#7dff8a" stroke-width="2.5" marker-end="url(#g)"/>
+</svg>

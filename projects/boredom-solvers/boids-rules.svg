@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 560" font-family="Rubik, 'Segoe UI', Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#8fa6e0"/>
+    </marker>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b2440"/>
+      <stop offset="1" stop-color="#121829"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="560" rx="24" fill="url(#bg)"/>
+  <text x="30" y="52" font-size="26" font-weight="700" fill="#e6eeff">Boids Playground · three rules per bird, 60 times a second</text>
+  <text x="30" y="78" font-size="14" fill="#8fa6e0">swarm_dynamics.py (238 lines, pygame) · each boid looks only at neighbours within its visual range</text>
+
+  <text x="30" y="116" font-size="13" font-weight="700" fill="#8fa6e0" letter-spacing="1">ONE UPDATE OF ONE BOID</text>
+  <g text-anchor="middle">
+    <rect x="30" y="130" width="190" height="190" rx="12" fill="#232d4d" stroke="#5b6b96" stroke-width="2"/>
+    <text x="125" y="164" font-size="16" font-weight="700" fill="#e6eeff">Fish tank walls</text>
+    <text x="125" y="192" font-size="12" fill="#a9b8d8">within 50 px of an edge</text>
+    <text x="125" y="210" font-size="12" fill="#a9b8d8">the velocity is nudged</text>
+    <text x="125" y="228" font-size="12" fill="#a9b8d8">back inside by 0.8</text>
+    <text x="125" y="262" font-size="12" fill="#a9b8d8">hard boundaries,</text>
+    <text x="125" y="280" font-size="12" fill="#a9b8d8">nothing wraps around</text>
+
+    <rect x="270" y="130" width="250" height="190" rx="12" fill="#0f3a49" stroke="#22c7e6" stroke-width="2.5"/>
+    <text x="395" y="164" font-size="16" font-weight="700" fill="#e6feff">1 · Cohesion</text>
+    <text x="395" y="192" font-size="12" fill="#9fe6f5">steer toward the centre of</text>
+    <text x="395" y="210" font-size="12" fill="#9fe6f5">the neighbours in range</text>
+    <circle cx="350" cy="250" r="5" fill="#22c7e6"/>
+    <circle cx="395" cy="236" r="5" fill="#22c7e6"/>
+    <circle cx="440" cy="254" r="5" fill="#22c7e6"/>
+    <circle cx="395" cy="294" r="6" fill="none" stroke="#ffb547" stroke-width="2"/>
+    <path d="M395 285 L395 258" stroke="#ffb547" stroke-width="2" marker-end="url(#a)"/>
+
+    <rect x="560" y="130" width="250" height="190" rx="12" fill="#3a2e14" stroke="#ffb547" stroke-width="2.5"/>
+    <text x="685" y="164" font-size="16" font-weight="700" fill="#ffe7c2">2 · Separation</text>
+    <text x="685" y="192" font-size="12" fill="#d9bf98">move away from anyone</text>
+    <text x="685" y="210" font-size="12" fill="#d9bf98">closer than 25 px</text>
+    <circle cx="665" cy="270" r="5" fill="#ffb547"/>
+    <circle cx="705" cy="262" r="5" fill="#ffb547"/>
+    <path d="M657 273 L634 281" stroke="#ffe7c2" stroke-width="2" marker-end="url(#a)"/>
+    <path d="M713 259 L736 251" stroke="#ffe7c2" stroke-width="2" marker-end="url(#a)"/>
+
+    <rect x="850" y="130" width="250" height="190" rx="12" fill="#2d1f4d" stroke="#a98bff" stroke-width="2.5"/>
+    <text x="975" y="164" font-size="16" font-weight="700" fill="#efe6ff">3 · Alignment</text>
+    <text x="975" y="192" font-size="12" fill="#c7b6ee">match the average heading</text>
+    <text x="975" y="210" font-size="12" fill="#c7b6ee">of the neighbours in range</text>
+    <path d="M930 284 L968 266" stroke="#a98bff" stroke-width="2.5" marker-end="url(#a)"/>
+    <path d="M960 296 L998 278" stroke="#a98bff" stroke-width="2.5" marker-end="url(#a)"/>
+    <path d="M990 266 L1028 248" stroke="#a98bff" stroke-width="2.5" marker-end="url(#a)"/>
+
+    <rect x="1140" y="130" width="110" height="190" rx="12" fill="#232d4d" stroke="#5b6b96" stroke-width="2"/>
+    <text x="1195" y="164" font-size="15" font-weight="700" fill="#e6eeff">Speed</text>
+    <text x="1195" y="192" font-size="12" fill="#a9b8d8">clamped</text>
+    <text x="1195" y="210" font-size="12" fill="#a9b8d8">to 2 to 5</text>
+    <text x="1195" y="250" font-size="12" fill="#a9b8d8">then move</text>
+    <text x="1195" y="268" font-size="12" fill="#a9b8d8">and draw</text>
+  </g>
+  <path d="M220 225 L266 225" stroke="#8fa6e0" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M520 225 L556 225" stroke="#8fa6e0" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M810 225 L846 225" stroke="#8fa6e0" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M1100 225 L1136 225" stroke="#8fa6e0" stroke-width="2" marker-end="url(#a)"/>
+
+  <text x="30" y="372" font-size="13" font-weight="700" fill="#8fa6e0" letter-spacing="1">THE CONTROL PANEL, SLIDERS AND PRESETS BUILT BY HAND IN PYGAME</text>
+  <g text-anchor="middle">
+    <rect x="30" y="386" width="760" height="140" rx="12" fill="#232d4d" stroke="#5b6b96" stroke-width="2"/>
+    <text x="410" y="418" font-size="14" font-weight="700" fill="#e6eeff">5 sliders, changed while the flock is flying</text>
+    <text x="410" y="446" font-size="12" fill="#a9b8d8">Separation 0 to 0.2 · Alignment 0 to 0.2 · Cohesion 0 to 0.02</text>
+    <text x="410" y="466" font-size="12" fill="#a9b8d8">Visual range 30 to 200 px · Boid count 50 to 150 · Reset flock</text>
+    <text x="410" y="498" font-size="12" fill="#a9b8d8">Each slider, button and the whole loop are written with pygame, no UI library</text>
+
+    <rect x="830" y="386" width="420" height="140" rx="12" fill="#0f3a49" stroke="#22c7e6" stroke-width="2.5"/>
+    <text x="1040" y="418" font-size="14" font-weight="700" fill="#e6feff">3 presets for different animals</text>
+    <text x="1040" y="446" font-size="12" fill="#9fe6f5">Birds: range 80, loose and cohesive</text>
+    <text x="1040" y="466" font-size="12" fill="#9fe6f5">Fish: range 45, strong alignment, tight lanes</text>
+    <text x="1040" y="486" font-size="12" fill="#9fe6f5">Bugs: range 25, almost no alignment, scattered</text>
+  </g>
+</svg>
